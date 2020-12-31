@@ -1,6 +1,8 @@
 project "imgui"
    kind "StaticLib"
+   staticruntime "on"
    language "C++"
+   cppdialect "C++17"
    targetdir ("bin/" .. outputdir)
    objdir ("Intermediate/" .. outputdir)
    defines { "IMGUI_IMPL_OPENGL_LOADER_GLAD" }
@@ -21,8 +23,6 @@ project "imgui"
    }
 
    filter "system:windows"
-      staticruntime "On"
-      cppdialect "C++17"
       systemversion "latest"
    
    filter "configurations:Debug"
@@ -32,7 +32,4 @@ project "imgui"
    filter "configurations:Release"
         runtime "Release"
         optimize "on"
-        
-   filter "configurations:Release"
-		runtime "Release"
-		optimize "on"
+
